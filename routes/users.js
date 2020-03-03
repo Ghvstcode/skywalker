@@ -3,7 +3,6 @@ const User =  require('../models/Users')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-const { welcomeEmail } = require('../emails/account')
 
 //LOGIN TO THE DASHBOARD
 router.get('/login', (req, res) => {
@@ -74,7 +73,6 @@ router.post('/register', (req, res) => {
                     })
                     .catch(err=> console.log(err))
                 })) 
-                welcomeEmail(newUser.email, newUser.name)
             }
         })
 
